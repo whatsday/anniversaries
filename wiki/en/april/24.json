@@ -1,0 +1,51 @@
+[
+  {
+    "country": ["Armenia", "France"],
+    "event": "Armenian Genocide Remembrance Day"
+  },
+  {
+    "event": "Christian feast day"
+  },
+  {
+    "country": "Zambia",
+    "event": "Children's Day"
+  },
+  {
+    "country": "Niger",
+    "event": "Concord Day"
+  },
+  {
+    "country": "Nepal",
+    "event": "Democracy Day"
+  },
+  {
+    "country": "United States",
+    "event": "Arbor Day",
+    "description": "Earliest day on which Arbor Day can fall, while April 30 is the latest; celebrated on the last Friday in April."
+  },
+  {
+    "country": "Turkmenistan",
+    "event": "Turkmen Racing Horse Festival",
+    "description": "Earliest day on which Turkmen Racing Horse Festival can fall, while April 30 is the latest; celebrated on the last Sunday in April."
+  },
+  {
+    "country": "Bangladesh",
+    "event": "Fashion Revolution Day",
+    "related": "Labour Safety Day"
+  },
+  {
+    "country": ["Australia", "Canada"],
+    "event": "Kapyong Day"
+  },
+  {
+    "country": "India",
+    "event": "National Panchayati Raj Day"
+  },
+  {
+    "country": "The Gambia",
+    "event": "Republic Day"
+  },
+  {
+    "event": "World Day for Laboratory Animals"
+  }
+]
