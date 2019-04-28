@@ -1,0 +1,52 @@
+[
+  {
+    "event": "Christian feast day",
+    "description": [
+      "Anthimus of Nicomedia",
+      "Assicus",
+      "Floribert of Liège",
+      "John of Constantinople",
+      "Liberalis of Treviso",
+      "Pollio",
+      "Rafael Arnáiz Barón",
+      "Virgin of Montserrat",
+      "Zita",
+      "April 27 (Eastern Orthodox liturgics)"
+    ]
+  },
+  {
+    "country": "Russia",
+    "event": "Day of Russian Parliamentarism"
+  },
+  {
+    "country": "Slovenia",
+    "event": "Day of the Uprising Against the Occupying Forces"
+  },
+  {
+    "country": "Moldova",
+    "event": "Flag Day"
+  },
+  {
+    "country": "South Africa",
+    "event": "Freedom Day"
+  },
+  {
+    "country": "Sierra Leone",
+    "event": "Independence Day",
+    "description": "celebrates the independence of Sierra Leone from United Kingdom in 1961."
+  },
+  {
+    "country": "Togo",
+    "event": "Independence Day",
+    "description": "celebrates the independence of Togo from France in 1960."
+  },
+  {
+    "country": ["Netherlands", "Aruba", "Curaçao", "Sint Maarten"],
+    "event": "King's Day",
+    "description": "celebrated on April 26 if April 27 falls on a Sunday"
+  },
+  {
+    "country": "Finland",
+    "event": "National Veterans' Day"
+  }
+]

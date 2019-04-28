@@ -1,0 +1,38 @@
+[
+  {
+    "event": "Christian feast day",
+    "description": [
+      "Gianna Beretta Molla",
+      "Louis de Montfort",
+      "Peter Chanel",
+      "Vitalis and Valeria of Milan",
+      "April 28 (Eastern Orthodox liturgics)"
+    ]
+  },
+  {
+    "country": "Odisha, India",
+    "event": "Lawyers' Day"
+  },
+  {
+    "country": "Afghanistan",
+    "event": "Mujahideen Victory Day"
+  },
+  {
+    "country": "Barbados",
+    "event": "National Heroes Day"
+  },
+  {
+    "country": "Japan",
+    "event": "Restoration of Sovereignty Day"
+  },
+  {
+    "country": "Sardinia",
+    "event": "Sardinia Day"
+  },
+  {
+    "country": "International",
+    "event": "Workers' Memorial Day",
+    "description": "World Day for Safety and Health at Work",
+    "related": "National Day of Mourning (Canada)"
+  }
+]

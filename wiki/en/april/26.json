@@ -1,0 +1,40 @@
+[
+  {
+    "country": "Belarus",
+    "event": "Chernobyl disaster",
+    "description": "Day of Remembrance of the Chernobyl tragedy"
+  },
+  {
+    "country": "Russia",
+    "event": "Chernobyl disaster",
+    "description": "Memorial Day of Radiation Accidents and Catastrophes"
+  },
+  {
+    "event": "Christian feast day",
+    "description": [
+      "Aldobrandesca (or Alda)",
+      "Franca Visalta",
+      "Lucidius of Verona",
+      "Our Lady of Good Counsel",
+      "Pope Anacletus and Marcellinus",
+      "Riquier",
+      "Paschasius Radbertus",
+      "Peter of Rates (or of Braga)",
+      "Robert Hunt (Episcopal Church (USA))",
+      "Stephen of Perm, see also Old Permic Alphabet Day",
+      "Trudpert",
+      "April 26 (Eastern Orthodox liturgics)"
+    ]
+  },
+  {
+    "country": "Florida, United States",
+    "event": "Confederate Memorial Day"
+  },
+  {
+    "country": "Tanzania",
+    "event": "Union Day"
+  },
+  {
+    "event": "World Intellectual Property Day"
+  }
+]

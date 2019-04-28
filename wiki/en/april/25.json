@@ -1,0 +1,66 @@
+[
+  {
+    "country": "Iraqi Kurdistan",
+    "event": "Anniversary of the First Cabinet of Kurdish Government"
+  },
+  {
+    "country": ["Australia", "New Zealand"],
+    "event": "Anzac Day"
+  },
+  {
+    "country": "Germany",
+    "event": "Arbor Day"
+  },
+  {
+    "event": "Christian feast day",
+    "description": [
+      "Giovanni Battista Piamarta",
+      "Major Rogation (Western Christianity)",
+      "Mark the Evangelist",
+      "Maughold",
+      "Philo and Agathopodes",
+      "Anianus of Alexandria",
+      "April 25 (Eastern Orthodox liturgics)"
+    ]
+  },
+  {
+    "event": "DNA Day"
+  },
+  {
+    "country": "Faroe Islands",
+    "event": "Flag Day"
+  },
+  {
+    "country": "Swaziland",
+    "event": "Flag Day"
+  },
+  {
+    "country": "Portugal",
+    "event": "Freedom Day"
+  },
+  {
+    "country": "Italy",
+    "event": "Liberation Day"
+  },
+  {
+    "country": "South Georgia",
+    "event": "Liberation Day"
+  },
+  {
+    "country": "North Korea",
+    "event": "Military Foundation Day"
+  },
+  {
+    "event": "Parental Alienation Awareness Day"
+  },
+  {
+    "event": "Red Hat Society Day"
+  },
+  {
+    "country": "Egypt",
+    "event": "Sinai Liberation Day"
+  },
+  {
+    "event": "World Malaria Day"
+  }
+]
