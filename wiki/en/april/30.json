@@ -1,0 +1,50 @@
+[
+  {
+    "country": "Georgia",
+    "event": "Armed Forces Day"
+  },
+  {
+    "country": "Sweden",
+    "event": "Birthday of the King Carl XVI Gustaf",
+    "description": "one of the official flag days of Sweden."
+  },
+  {
+    "country": "French Foreign Legion",
+    "event": "Camarón Day"
+  },
+  {
+    "country": "Mexico",
+    "event": "Children's Day"
+  },
+  {
+    "country": "Thailand",
+    "event": "Consumer Protection Day"
+  },
+  {
+    "country": "United States",
+    "event": "Honesty Day"
+  },
+  {
+    "event": "International Jazz Day (UNESCO)"
+  },
+  {
+    "country": "Pakistan",
+    "event": "Martyrs' Day"
+  },
+  {
+    "country": "Iran",
+    "event": "National Persian Gulf Day"
+  },
+  {
+    "country": "Vietnam",
+    "event": "Reunification Day"
+  },
+  {
+    "country": "Russia",
+    "event": "Russian State Fire Service Day"
+  },
+  {
+    "country": "Paraguay",
+    "event": "Teachers' Day"
+  }
+]
