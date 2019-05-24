@@ -1,0 +1,25 @@
+{
+  "name": "historical_anniversaries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatsday/historical_anniversaries.git"
+  },
+  "keywords": [
+    "historical anniversaries"
+  ],
+  "author": "Elf-mousE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatsday/historical_anniversaries/issues"
+  },
+  "homepage": "https://github.com/whatsday/historical_anniversaries#readme",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  }
+}
