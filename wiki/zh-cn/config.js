@@ -14,9 +14,13 @@ const month = {
 };
 
 const date = [
+  // {
+  //   month: 1,
+  //   day: 31
+  // }
   {
-    month: 1,
-    day: 31
+    month: 2,
+    day: 29
   }
 ];
 

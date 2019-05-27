@@ -9,10 +9,12 @@ const updateHolidays = (month, day, html) => {
 
   let $targetElement;
   const $targetElements = [
-    $('#节假日和习俗'), // 1月1日
-    $('#节假日'), // 1月3日
-    $('#節假日和習俗') // 1月4日
-    // $('#节日、风俗习惯'),
+    $('#节假日和习俗'), // e.g. 1月1日
+    $('#节假日'), // e.g. 1月3日
+    $('#節假日和習俗'), // e.g. 1月4日
+    $('#節日'), // e.g. 2月1日
+    $('#节日'), // e.g. 2月8日
+    $('#节日、风俗习惯') // e.g. 2月10日
     // $('#節日、風俗習慣'),
     // $('#節日、風俗習惯')
   ];
@@ -27,34 +29,52 @@ const updateHolidays = (month, day, html) => {
     let $parent = $targetElement.parent();
 
     let $children = $parent.next();
-    if ($children[0].name === 'table') {
-      $children = $children.next();
-    }
-    let $items = $children.find('li');
 
-    // 1月21日
-    if ($children[0].name === 'p') {
-      $items = $children;
+    let $items = [];
+    switch ($children[0].name) {
+      case 'ul': // 默认
+        $items = $children.find('li');
+        break;
+      case 'table': // e.g. 1月5日
+        $children = $children.next();
+        if ($children[0] && $children[0].name === 'ul') {
+          $items = $children.find('li');
+        }
+        break;
+      case 'p': // e.g. 1月21日
+        $items = $children;
+        break;
     }
+
+    // 过滤无意义的死数据
+    $items = $items.filter((index, element) => {
+      let content = $(element).text();
+      return !!content.trim() && !/除夕/.test(content);
+    });
 
     console.log(`${month}月${day}日`, $items.length);
 
     if ($items.length) {
       $items.each((index, element) => {
-        let item = $(element)
+        let content = $(element)
           .text()
-          .split('：');
+          .trim();
+        let colonIndex = content.indexOf('：'); // 取第一个冒号
 
         let data = {};
-        if (item.length === 2) {
-          let key = /耶稣|教/.test(item[0]) ? 'religion' : 'country';
-          data[key] = item[0].trim();
-          data.event = item[1].replace(/\[\d+\]/g, '');
+        if (colonIndex > 0) {
+          let content1 = content.slice(0, colonIndex);
+          let content2 = content.slice(colonIndex + 1);
+          let key = /耶稣|教/.test(content1) ? 'religion' : 'country';
+          data[key] = content1;
+          if (/\n/.test(content2)) {
+            content2 = content2.replace(/^\n/, '');
+            data.event = content2.split('\n');
+          } else {
+            data.event = content2.replace(/\[\d+\]/g, '');
+          }
         } else {
-          data.event = item[0]
-            .trim()
-            .replace(/\[\d+\]/g, '')
-            .replace(/\n/, '');
+          data.event = content.replace(/\[\d+\]/g, '').replace(/\n/, '');
         }
 
         result.push(data);
@@ -110,7 +130,7 @@ const getHolidays = (month, day, pageUrl) => {
     });
 };
 
-const isDev = false;
+const isDev = true;
 
 if (!isDev) {
   config.date.forEach(({ month, day }) => {
@@ -119,8 +139,8 @@ if (!isDev) {
     }
   });
 } else {
-  const TEST_MONTH = 1;
-  const TEST_DAY = 21;
+  const TEST_MONTH = 2;
+  const TEST_DAY = 28;
 
   getHolidays(
     TEST_MONTH,
