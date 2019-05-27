@@ -9,10 +9,12 @@ const updateHolidays = (month, day, html) => {
 
   let $targetElement;
   const $targetElements = [
-    $('#节日、风俗习惯'),
-    $('#节假日和习俗'),
-    $('#節日、風俗習慣'),
-    $('#節日、風俗習惯')
+    $('#节假日和习俗'), // 1月1日
+    $('#节假日'), // 1月3日
+    $('#節假日和習俗') // 1月4日
+    // $('#节日、风俗习惯'),
+    // $('#節日、風俗習慣'),
+    // $('#節日、風俗習惯')
   ];
   for (let i = 0, len = $targetElements.length; i < len; i++) {
     if ($targetElements[i].length) {
@@ -22,12 +24,20 @@ const updateHolidays = (month, day, html) => {
   }
 
   if ($targetElement) {
-    let $items = $targetElement
-      .parent()
-      .next()
-      .find('li');
+    let $parent = $targetElement.parent();
 
-    console.log(month, day, $items.length);
+    let $children = $parent.next();
+    if ($children[0].name === 'table') {
+      $children = $children.next();
+    }
+    let $items = $children.find('li');
+
+    // 1月21日
+    if ($children[0].name === 'p') {
+      $items = $children;
+    }
+
+    console.log(`${month}月${day}日`, $items.length);
 
     if ($items.length) {
       $items.each((index, element) => {
@@ -35,15 +45,17 @@ const updateHolidays = (month, day, html) => {
           .text()
           .split('：');
 
-        let data =
-          item.length === 2
-            ? {
-                country: item[0],
-                event: item[1].replace(/\[\d+\]/g, '')
-              }
-            : {
-                event: item[0].replace(/\[\d+\]/g, '')
-              };
+        let data = {};
+        if (item.length === 2) {
+          let key = /耶稣|教/.test(item[0]) ? 'religion' : 'country';
+          data[key] = item[0].trim();
+          data.event = item[1].replace(/\[\d+\]/g, '');
+        } else {
+          data.event = item[0]
+            .trim()
+            .replace(/\[\d+\]/g, '')
+            .replace(/\n/, '');
+        }
 
         result.push(data);
       });
@@ -98,9 +110,21 @@ const getHolidays = (month, day, pageUrl) => {
     });
 };
 
-config.date.forEach(({ month, day }) => {
-  let i = 5;
-  // for (let i = 1; i <= day; i++) {
-  getHolidays(month, i, `https://zh.wikipedia.org/wiki/${month}月${i}日`);
-  // }
-});
+const isDev = false;
+
+if (!isDev) {
+  config.date.forEach(({ month, day }) => {
+    for (let i = 1; i <= day; i++) {
+      getHolidays(month, i, `https://zh.wikipedia.org/wiki/${month}月${i}日`);
+    }
+  });
+} else {
+  const TEST_MONTH = 1;
+  const TEST_DAY = 21;
+
+  getHolidays(
+    TEST_MONTH,
+    TEST_DAY,
+    `https://zh.wikipedia.org/wiki/${TEST_MONTH}月${TEST_DAY}日`
+  );
+}
