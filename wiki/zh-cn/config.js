@@ -17,11 +17,15 @@ const date = [
   // {
   //   month: 1,
   //   day: 31
+  // },
+  // {
+  //   month: 2,
+  //   day: 29
   // }
-  {
-    month: 2,
-    day: 29
-  }
+  // {
+  //   month: 3,
+  //   day: 31
+  // }
 ];
 
 module.exports = {

@@ -14,8 +14,8 @@ const updateHolidays = (month, day, html) => {
     $('#節假日和習俗'), // e.g. 1月4日
     $('#節日'), // e.g. 2月1日
     $('#节日'), // e.g. 2月8日
-    $('#节日、风俗习惯') // e.g. 2月10日
-    // $('#節日、風俗習慣'),
+    $('#节日、风俗习惯'), // e.g. 2月10日
+    $('#節日、風俗習慣') // e.g. 3月6日
     // $('#節日、風俗習惯')
   ];
   for (let i = 0, len = $targetElements.length; i < len; i++) {
@@ -35,10 +35,19 @@ const updateHolidays = (month, day, html) => {
       case 'ul': // 默认
         $items = $children.find('li');
         break;
-      case 'table': // e.g. 1月5日
+      case 'table':
+        // e.g. 1月5日
         $children = $children.next();
-        if ($children[0] && $children[0].name === 'ul') {
-          $items = $children.find('li');
+
+        if ($children[0]) {
+          // e.g. 2月28日
+          if ($children[0].name === 'div') {
+            $children = $children.next();
+          }
+
+          if ($children[0].name === 'ul') {
+            $items = $children.find('li');
+          }
         }
         break;
       case 'p': // e.g. 1月21日
@@ -49,7 +58,7 @@ const updateHolidays = (month, day, html) => {
     // 过滤无意义的死数据
     $items = $items.filter((index, element) => {
       let content = $(element).text();
-      return !!content.trim() && !/除夕/.test(content);
+      return !!content.trim() && !/除夕/.test(content) && !/元宵/.test(content);
     });
 
     console.log(`${month}月${day}日`, $items.length);
@@ -58,6 +67,7 @@ const updateHolidays = (month, day, html) => {
       $items.each((index, element) => {
         let content = $(element)
           .text()
+          .replace(/\[(\d+|来源请求)\]/g, '')
           .trim();
         let colonIndex = content.indexOf('：'); // 取第一个冒号
 
@@ -65,16 +75,21 @@ const updateHolidays = (month, day, html) => {
         if (colonIndex > 0) {
           let content1 = content.slice(0, colonIndex);
           let content2 = content.slice(colonIndex + 1);
-          let key = /耶稣|教/.test(content1) ? 'religion' : 'country';
-          data[key] = content1;
-          if (/\n/.test(content2)) {
-            content2 = content2.replace(/^\n/, '');
-            data.event = content2.split('\n');
+
+          if (/日$/.test(content1) || /\d+年?/.test(content1)) {
+            data.event = content.replace(/\n/, '');
           } else {
-            data.event = content2.replace(/\[\d+\]/g, '');
+            let key = /耶稣|教/.test(content1) ? 'religion' : 'country';
+            data[key] = content1;
+            if (/\n/.test(content2)) {
+              content2 = content2.replace(/^\n/, '');
+              data.event = content2.split('\n');
+            } else {
+              data.event = content2;
+            }
           }
         } else {
-          data.event = content.replace(/\[\d+\]/g, '').replace(/\n/, '');
+          data.event = content.replace(/\n/, '');
         }
 
         result.push(data);
@@ -139,8 +154,8 @@ if (!isDev) {
     }
   });
 } else {
-  const TEST_MONTH = 2;
-  const TEST_DAY = 28;
+  const TEST_MONTH = 3;
+  const TEST_DAY = 19;
 
   getHolidays(
     TEST_MONTH,
